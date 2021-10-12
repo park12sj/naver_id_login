@@ -20,7 +20,7 @@
       window.naverIdLogin.init = function (clientId, callback) {
         new window.naver.LoginWithNaverId({
           clientId: clientId,
-          callbackUrl: "https://park12sj.github.io/naver_id_login/naver-id-login/callback",
+          callbackUrl: "https://park12sj.github.io/naver_id_login/callback",
           isPopup: true,
           loginButton: { color: "green", type: 1, height: 0 },
         }).init();
