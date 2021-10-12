@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>네이버 아이디로 로그인</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <script>
+      if (window.opener !== null) {
+        const queries = {};
+        // 에러는 querystring으로, access token은 hash로 전송됨
+        location.href
+          .substr(
+            location.protocol.length +
+              2 +
+              location.host.length +
+              location.pathname.length +
+              1
+          )
+          .split("&")
+          .map((query) => {
+            query = query.split("=");
+            queries[query[0]] = query[1];
+          });
+
+        window.opener.postMessage(queries, "*");
+        window.close();
+      } else {
+        document.write("정상적인 접근이 아닙니다.");
+      }
+    </script>
+  </body>
+</html>
